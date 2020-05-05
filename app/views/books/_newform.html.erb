@@ -1,0 +1,28 @@
+<% if book.errors.any? %>
+     <div id="error_explanation">
+         <h2><%= book.errors.count %>errors prohibted this book from being saved:</h2>
+             <ul>
+               <% book.errors.full_messages.each do |message| %>
+               <li><%= message %></li>
+              <% end %>
+              </ul>
+     </div>
+ <% end %>
+
+
+
+<%= form_for(book) do |f| %>
+	<div class="field row">
+		<%= f.label :title %>
+		<%= f.text_field :title, class: "col-xs-12 book_title" %>
+	</div>
+
+	<div class="field row">
+		<%= f.label :body %> <!-- ここを変更 -->
+		<%= f.text_area :body, class: "col-xs-12 book_body" %>
+	</div>
+
+	<div class="actions row">
+		<%= f.submit class: "btn btn-primary col-xs-12" %>
+	</div>
+<% end %>
