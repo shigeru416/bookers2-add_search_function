@@ -16,7 +16,7 @@
 		<table class="table">
 			<tr>
 				<td>
-					<%= link_to (@book_post.user) do %>
+					<%= link_to user_path(@book_post.user.id) do %>
 					<%= attachment_image_tag(@book_post.user, :profile_image, :fill, 100, 100, fallback: "no-image-mini.jpg") %><br>
 					<%= @book_post.user.name %>
 					<% end %>
@@ -83,7 +83,7 @@
 
 		<%= form_for [@book_post, @book_comment] do |f| %>
             <%= f.text_area :comment, class: "form-control" %>
-   				<%= f.submit "送信する", class: "btn btn-sm btn-primary" %>
+   				<%= f.submit "送信する", class: "btn btn-primary btn-sm" %>
 		<% end %>
 		</section>
 
